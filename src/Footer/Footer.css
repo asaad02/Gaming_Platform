@@ -1,0 +1,63 @@
+.footer {
+    color: white; /* White text color */
+    font-family: 'Manrope', sans-serif; /* Manrope font-family */
+  }
+  
+  .footer-container {
+    background-color: rgba(191, 76, 23, 0.5); /* Transparent white background */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px; /* Adjust padding as needed */
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(var(--foreground-rgb), 0.1);
+    border-radius: 2rem;
+  }
+  
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Left align text */
+  }
+  
+  .large {
+    padding-left: 40px;
+    flex: 2; /* Larger flex basis for the first column */
+    margin-right: 20px; /* Space between columns */
+  }
+  
+  .small {
+    flex: 1; /* Smaller flex basis for the other two columns */
+  }
+  
+  .footer-logo {
+    width: 15%; /* Adjust width as needed */
+    margin-bottom: 20px; /* Space below the logo */
+  }
+  
+  .footer-address p {
+    color: white;
+    margin: 0; /* Remove default paragraph margin */
+  }
+  
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-link {
+    color: white; /* White text color for links */
+    text-decoration: none; /* No underline on links */
+    margin-bottom: 10px; /* Space between links */
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline; /* Underline on hover for links */
+  }
+  
+  .footer-copy {
+    text-align: center; /* Center copy text */
+    margin-top: 20px; /* Space above the copyright text */
+  }
+  

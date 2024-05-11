@@ -1,0 +1,21 @@
+.cryptogram-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* Add other styles as needed, like height, width */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Add any additional styles as needed */
+  }
+  
+  .cryptogram-header {
+    text-align: center; /* Ensure titles and headers are centered */
+  }
+  
+  /* Keep your existing styles, and add these to enhance the layout */
+  

@@ -1,0 +1,143 @@
+#error {
+	font-size: large;
+	color: rgb(var(--global-light));
+	margin-top: 50%;
+	text-align: bottom;
+}
+
+#table-container {
+	display: flex;
+	flex-direction: column;
+	
+	background-color: rgb(var(--global-dark), 0.25);
+	border-bottom-left-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+	color: rgb(var(--global-light));
+
+	border-collapse: collapse;
+}
+
+th { 
+	padding: 20px 15px;
+	text-align: left;
+	font-weight: 500;
+	font-size: x-large;
+	font-family: 'LuckiestGuy';
+	margin-top: 20px;
+}
+
+.th-arrows {
+	display: flex;
+	align-items: center;
+}
+
+.th-arrow {
+	font-size: small;
+	padding-left: 10px;
+}
+
+td {
+	padding: 15px;
+	text-align: left;
+	vertical-align: middle;
+	max-width: fit-content;
+	font-weight: 300;
+	font-size: large;
+	border-bottom: rgb(var(--foreground-rgb), 0.1) 1px solid;
+}
+
+thead {
+	position: sticky;
+	display: table;
+	width: 100%;
+	background-color: rgb(var(--global-dark), 0.25);
+}
+
+table {
+	max-height: 80vh;
+	overflow-x: hidden;
+}
+
+#body-wrap {
+	display: block;
+	overflow-y: auto;
+}
+
+tbody {
+	display: table;
+	width: 100%;
+	height: 100%;
+	margin-top: 0px;
+}
+
+tbody tr:hover {
+	background-color: rgb(var(--foreground-rgb), 0.1);
+}
+
+#game-selector {
+	min-width: 680px;
+	max-width: 900px;
+
+	justify-content: center;
+	align-items: center;
+		
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#game-selector-button-container {
+	text-align: left;
+	height: fit-content;
+	padding-left: 35px;
+	background-color: rgb(var(--global-dark), .35);
+	border-top-left-radius: 2rem;
+	border-top-right-radius: 2rem;
+}
+
+.game-selector-button {
+	padding: 10px;
+	font-size: x-large;
+	font-family: 'LuckiestGuy';
+
+	background: transparent;
+	transform: skew(8deg);
+	border: none;
+	border-left: 2px inset rgb(var(--foreground-rgb), 0.1);
+
+	color: rgb(var(--global-light));
+	transition: ease-out 0.4s;
+}
+
+#game-selector-button-container button:hover { 
+	background-color: rgb(var(--foreground-rgb), 0.1);
+	transition: ease-out 0.5s;
+}
+
+.game-selector-button-container-button-active { 
+	background-color: rgb(var(--foreground-rgb), 0.1);
+	color: #ffe11e;
+}
+
+#game-selector-button-container :nth-child(3) {
+	border-right: 2px inset rgb(var(--global-dark), 0.1);
+}
+
+.lottie-container-leaderboard {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-top: 50px;
+	opacity: 0.5;
+
+	width: 100%;
+	height: 100%;
+
+	min-width: 680px;
+
+	z-index: -1;
+}
+
+.component-container {
+	position: relative;
+	padding: 15px;
+}

@@ -1,0 +1,82 @@
+stages:
+  - timed-jobs
+  - build
+  - test # Code quality tests and unit tests
+
+
+image: node:latest # Defines the Docker image to use for the jobs
+
+
+cache: # Global cache definition to be used by all jobs
+  key:
+    files:
+      - package-lock.json # Ensures cache is invalidated when dependencies change
+  paths:
+    - node_modules/ # Caches the node_modules directory
+  policy: pull-push # Cache policy to both pull the cache and push updates after execution
+
+build-job: # Compiles the code and prepares a build
+  stage: build
+  before_script:
+    - npm ci # Installs project dependencies using npm ci
+  script:
+    - echo "Building the project..." && npm run build # Runs the build script defined in the package.json file
+  artifacts:
+    expire_in: 1 day # Sets expiration of artifacts; corrected "days" to "day" for consistency
+    when: on_success # Artifacts are only created if the job succeeds
+    paths:
+      - build/ # Specifies the directory to save as an artifact, assuming build outputs to a 'build/' directory
+
+test-job:
+  stage: test
+  parallel: 3 # split the tests into 3 shards
+  before_script:
+    - npm ci
+  script:
+    - export JEST_JUNIT_OUTPUT_NAME="junit_${CI_NODE_INDEX}_${CI_COMMIT_SHA:0:8}.xml"
+    # set the output name for the JUnit report (reporter options are not available in CLI so we need to set it in the environment variable or in the package.json file)
+    # the output name is set here to include the CI_NODE_INDEX and the commit SHA in the name to avoid overwriting any reports
+
+    - export JEST_JUNIT_OUTPUT_DIR="<rootDir>/test-reports"
+
+    - npm run test -- --shard=${CI_NODE_INDEX}/${CI_NODE_TOTAL} --ci --reporters="jest-junit" --config
+    # shard the tests and output the results in JUnit format
+  artifacts:
+    when: always
+    name: "${CI_COMMIT_SHA:0:8}_${CI_NODE_INDEX}"
+    expire_in: 1 week
+    reports:
+      junit: test-reports/*.xml
+  needs:
+    - job: build-job
+
+# Job: Linting
+#Job: Linting (job_lint):
+#stage: lint: Part of the lint stage.
+#script: Executes the linting script and formats the output if supported. It begins with a log message.
+#allow_failure and interruptible: Configures the job to be non-blocking and cancellable, making the pipeline more flexible.
+#artifacts: Creates a code quality report compatible with GitLab's code quality feature.
+lint-job:
+  stage: test
+  script:
+    - echo "Running linters..."
+    - npm run lint -- --fix
+    - npm run lint -- --format=gitlab # Uses npm to run the lint script, passing '--format=gitlab' if supported
+  allow_failure: false # Allows the pipeline to continue even if this job fails
+  interruptible: true # Allows this job to be canceled if it's blocking other jobs
+  before_script:
+    - npm ci
+  cache:
+    key:
+      files:
+        - package-lock.json # Uses package-lock.json to determine if the cache needs updating
+    paths:
+      - node_modules/ # Caches node_modules to speed up linting
+    policy: pull # Only retrieves the cache, doesn't update it after the job
+  artifacts:
+    reports:
+      codequality: gl-codequality.json # Exports the linting report for GitLab's code quality widget
+    expire_in: 1 day
+  needs:
+    - job: build-job
+

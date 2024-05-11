@@ -1,0 +1,124 @@
+@font-face {
+    font-family: "LuckiestGuy";
+    src: url("../../public/font/LuckiestGuy-Regular.ttf");
+  }
+
+.game-stats{
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black background */
+    border-radius: 20px; /* Rounded corners */
+    width: 100%;
+    max-width: auto; /* Adjust the width as per your design */
+    margin: 10px; /* Space around the cards */
+    padding: 20px; /* Padding inside the card */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    font-family: 'LuckiestGuy'; /* Luckiest Guy font for text */
+    font-size: 36px;
+    color: white; /* White font color */
+    text-align: left; /* Center align text */
+    margin-bottom: 100px;
+}
+
+.power-bar {
+    width: 90%; /* Adjust width as needed */
+    margin: 10px 0;
+  }
+  
+.player-section {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column; /* Stack players vertically */
+  align-items: left;
+  width: 100%;
+}
+
+.player-info {
+  padding: 20px 0px; /* Add space between player lines */
+}
+
+.player-balls {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.ball {
+  display: inline-block;
+  width: 25px; /* Size of the ball */
+  height: 25px; /* Size of the ball */
+  border-radius: 50%; /* Make it round */
+  margin-right: 5px; /* Space between balls */
+}
+
+.blue-ball {
+  background-color: blue;
+}
+
+.red-ball {
+  background-color: red;
+}
+
+.restart-button , .exit-button{
+  width: fill;
+  font-family: "LuckiestGuy";
+  background-color: transparent;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  padding: 10px 20px;
+  padding-top: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+  margin-right: 20px;
+}
+
+
+.colour_selector {
+  	width: fill;
+	font-family: 'LuckiestGuy';
+	color: #ffffff;
+	border: 3px solid #ffffff;
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.5s ease-in-out;
+	margin: 5px;
+}
+
+.colour_selector:hover {
+	animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+	0%, 100% {
+		transform: translateX(0) rotate(0);
+    }
+    25% {
+		transform: translateX(5px) rotate(10deg);
+    }
+    50% {
+		transform: translateX(-5px) rotate(-10deg);
+    }
+    75% {
+		transform: translateX(5px) rotate(10deg);
+    }
+}
+
+.modal-message {
+  color: black;
+}
+
+.modal-emoji {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-button {
+  display: block;
+  margin: auto;
+}
+

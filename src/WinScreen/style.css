@@ -1,0 +1,370 @@
+/* Importing external fonts and animations */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+@font-face {
+	font-family: 'LuckiestGuy';
+	src: url('../../public/font/LuckiestGuy-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Manrope';
+	src: url('../../public/font/Manrope-Regular.ttf');
+}
+
+
+.lottie-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-top: 50px;
+	opacity: 1;
+
+	width: 100%;
+	height: 100%;
+
+	min-width: 680px;
+
+	z-index: 1;
+}
+
+/* Root variables for easy theme management */
+:root {
+    --primary-color: #FF5BAA;
+    --secondary-color: #ffe11e;
+    --dark-color: #333;
+    --light-color: #fafafa;
+    --font-family: 'LuckiestGuy';
+    --background-color: #f0f8ff;
+    --container-background-color: #ffffff;
+    --hover-color: #E04A89;
+    --animation-duration: 0.5s;
+}
+
+/* General body and html styling */
+/* .gameBackground {
+    padding: 100px;
+    height: 100%;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    background-image: url('../../public/assets/9461.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+} */
+
+/* Main game container styling */
+
+.game-container {
+    width: 90%;
+    height: auto;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: var(--container-background-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn var(--animation-duration) ease-in-out;
+}
+
+/* Styling for the game header */
+.game-header h1 {
+    padding: 50px;
+    margin: 0;
+    color: black;
+    font-size: 4rem;
+    animation: bounceInDown var(--animation-duration) ease-in-out;
+}
+
+.game-header p {
+    font-family: "LuckiestGuy";
+    color: var(--dark-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.game-info {
+    display: flex;               
+    justify-content: space-between;    
+    align-items: center;
+    gap: 50px;
+}
+
+/* Styling for game buttons */
+.game-footer .game-button {
+	width: fill;
+	font-family: 'LuckiestGuy';
+	background-color: #FF5BAA;
+	color: #FFFFFF;
+	border: 3px solid #ffffff;
+	border-radius: 20px;
+	padding: 10px 20px;
+	padding-top: 15px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.3s ease;
+    gap: 20px
+}
+
+.game-button {
+    margin-top: 20px;
+}
+
+/* Hover and focus states for buttons */
+.game-footer .game-button:hover, .game-footer .game-button:focus {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+/* Styling for the game board grid */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    max-width: 600px;
+    width: 100%;
+    animation: zoomIn var(--animation-duration) ease-in-out;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .game-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .game-header h1 {
+        font-size: 2rem;
+    }
+
+    .game-footer .game-button {
+        font-size: 1rem;
+    }
+}
+
+/* Styling for individual cards */
+.card {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+    width: 120px; 
+    height: 180px; 
+    overflow: hidden; 
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Styling for card faces */
+.card .front-face, 
+.card .back-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px; 
+    overflow: hidden;
+}
+
+/* Front face showing the common image */
+.card .front-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Back face showing unique card images, initially hidden */
+.card .back-face {
+    transform: rotateY(180deg);
+}
+
+/* When a card is flipped, show the back face */
+.card.flipped .front-face {
+    transform: rotateY(-180deg);
+}
+
+.card.flipped .back-face {
+    transform: rotateY(0deg);
+}
+
+/* Ensure flip trans`ition is smooth for both faces */
+.card .front-face, 
+.card .back-face {
+    transition: transform 0.3s;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* Hover effect for cards */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for matched cards */
+.card.match {
+    animation: jello var(--animation-duration) ease-in-out;
+}
+
+/* Animation for wrong match */
+.card.wrong {
+    animation: shake var(--animation-duration) ease-in-out;
+}
+
+/* Utility class to hide elements */
+.hidden {
+    display: none;
+}
+
+/* Custom animations */
+@keyframes customFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes customZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes customJello {
+    0%,
+    11.1%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    22.2%,
+    33.3% {
+        transform: skewX(-12.5deg) skewY(-12.5deg);
+    }
+    44.4%,
+    55.5% {
+        transform: skewX(6.25deg) skewY(6.25deg);
+    }
+    66.6%,
+    77.7% {
+        transform: skewX(-3.125deg) skewY(-3.125deg);
+    }
+    88.8% {
+        transform: skewX(1.5625deg) skewY(1.5625deg);
+    }
+}
+
+@keyframes customShake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+
+.restartButton {
+    background-color: #FF5BAA; /* Green background */
+    border: none; /* No border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* No underline */
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Animation */
+}
+
+.restartButton:hover {
+    background-color: #E04A89; /* Darker green on hover */
+}
+
+/* The background overlay */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  /* The modal content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    font-family: "Manrope";
+}
+
+.modal-button {
+    width: fill;
+	font-family: 'LuckiestGuy';
+	background-color: #FF5BAA;
+	color: #ffffff;
+	border: 3px solid #ffffff;
+	border-radius: 20px;
+	padding: 10px 20px;
+	padding-top: 15px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+	background-color: #E04A89;
+}
+
+.modal-emoji {
+    height: 100px;
+}
+
+.modal-message {
+    margin-top: 0;
+}
+
+.select-card-design {
+    font-family: 'LuckiestGuy';
+}

@@ -1,0 +1,43 @@
+/* Styles.css */
+
+.icon {
+    width: 75px; /* size of the icons */
+    height: 100px; /* Maintain aspect ratio */
+    margin-right: 25px; /* Space between the icons */
+}
+
+.card-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+    max-width: 800px; /* Control the width of the card */
+    margin: auto; /* Center the card */
+    padding: 20px; /* Spacing inside the card */
+    border-radius: 25px; /* Rounded corners for modern look */
+    margin-top: 20px; /* Space from top */
+    text-align: center; /* Center-align the text */
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black background */
+    color: white; /* White font color */
+}
+
+.card-container h2 {
+    color: white; /* Set the color of the name "Aakil" to white */
+}
+
+.profile-image {
+    width: 325px; /* Increase the width */
+    height: 400px; /* Increase the height */
+    border-radius: 20%; /* Circle image */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+    margin-bottom: 20px; /* Space between image and text */
+}
+
+
+.social-links {
+    justify-content: center; /* Center the links within the container */
+    display: flex; /* Align social links horizontally */
+    margin-top: 10px; /* Space between the text and the links */
+}
+
+/* Improve the p tag */
+p {
+    color: white; /* White font color */
+}

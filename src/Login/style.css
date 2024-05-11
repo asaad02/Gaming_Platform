@@ -1,0 +1,67 @@
+#login-form {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	max-width: 512px;
+	padding: 1rem;
+	border-radius: 2rem;
+	border-color: rgb(var(--foreground-rgb));
+	background-color: rgb(var(--background-end-rgb), 1);
+	border-style: solid;
+	border-width: 3px;
+	color: rgb(var(--foreground-rgb));
+	z-index: 2;
+}
+
+#login-form h1 {
+	color: #FF5BAA;
+}
+
+#submit {
+	color: rgb(var(--background-end-rgb));
+	background-color: #FF5BAA;
+	border: none;
+	border-radius: 20px;
+	padding: 10px 20px;
+	margin: 0.5rem;
+	width: 25%;
+	cursor: pointer;
+	font-family: 'LuckiestGuy';
+	font-size: 16pt;
+}
+
+#submit:hover {
+	background-color: #E04A89;
+}
+
+#login-form input {
+	width: 75%;
+	padding: 0.75rem;
+	margin: 0.5rem;
+	border-radius: 0.5rem;
+	border-color: rgb(var(--foreground-rgb));
+	border-style: solid;
+	border-width: 2px;
+	background: transparent;
+	color : rgb(var(--foreground-rgb));
+	text-align: center;
+	
+}
+
+#login-form-background {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    background: rgba(var(--background-end-rgb), 0.7);
+	z-index: 1;
+}
+
+#login-form-container {
+	position: relative;
+	height: 100%;
+}

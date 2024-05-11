@@ -1,0 +1,519 @@
+body {
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  font-family: "LuckiestGuy";
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.header-scrolled {
+  background-color: #ff5baa; /* Change color as needed */
+  transition: background-color 0.3s; /* Smooth transition for the color change */
+}
+
+.logo {
+  height: 75px;
+}
+
+nav {
+  text-align: center;
+  font-family: "LuckiestGuy";
+  /* Additional styling for nav */
+}
+
+label {
+  font-family: "LuckiestGuy";
+}
+
+h1 {
+  font-family: "LuckiestGuy";
+  color: white;
+}
+
+p {
+  font-family: "Manrope";
+  color: rgb(0, 0, 0);
+}
+
+li {
+  font-size: 14pt;
+}
+.top-right-button {
+  display: flex;
+  vertical-align: middle;
+  padding: 10px 20px;
+  padding-top: 15px;
+  background-color: #f6f6f6;
+  color: rgb(18, 18, 18);
+  font-family: "LuckiestGuy";
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14pt;
+  transition: transform 0.2s ease-out;
+}
+
+.top-right-button:hover {
+  transform: scale(1.2);
+  background-color: #ffe11e;
+  color: #000000;
+  transition: transform 0.5s ease-in;
+}
+
+.containers {
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.containers > * {
+  min-width: 360px;
+  max-width: 512px;
+  flex-basis: calc(33.33% - 2%);
+  margin: 1%;
+}
+
+.container {
+  display: grid;
+  flex: auto;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(var(--foreground-rgb), 0.1);
+  border-radius: 2rem;
+  align-self: start;
+}
+
+.container:hover {
+  border-color: var(--foreground-rgb);
+  transition: all;
+  transition-duration: 1000ms;
+  transition-timing-function: ease-in-out;
+}
+
+.container a {
+  text-decoration: none;
+  color: rgb(var(--foreground-rgb));
+}
+
+.about-me {
+  text-align: left;
+  text-wrap: wrap;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  min-height: max-content;
+  color: #000000;
+}
+
+.image {
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  object-fit: scale-down;
+  position: relative;
+  width: 100%;
+  max-width: 756px;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "LuckiestGuy";
+  src: url("public/font/LuckiestGuy-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("public/font/Manrope-Regular.ttf");
+}
+
+.navlink {
+  font-size: 18pt;
+  font-family: "LuckiestGuy";
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+  padding: 10pt;
+}
+
+.navlink:hover {
+  transform: scale(1.1);
+  color: #ffe11e;
+}
+
+.hero-section {
+  text-align: center;
+  min-height: 400px;
+  padding: 200px 50px;
+  color: white;
+  font-family: "LuckiestGuy";
+  position: relative;
+}
+
+/* Adjust font size for medium screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 4em;
+  }
+  h2 {
+    font-size: 3em;
+  }
+}
+
+/* Adjust font size for smaller screens */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+}
+
+.hero-section h1 {
+  font-size: 5em;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.play-button {
+  background-color: transparent;
+  font-family: "LuckiestGuy";
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  /* Rounded corners */
+  padding: 10px 40px;
+  /* Padding inside the button */
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-size: 1.5em;
+  /* Larger text size for the button */
+  cursor: pointer;
+  /* Cursor effect */
+  transition: all 0.3s ease;
+  /* Smooth transition for hover effect */
+}
+
+.play-button:hover {
+  background-color: #e04a89;
+  /* Pink background on hover */
+  color: white;
+  /* White text on hover */
+}
+
+.lottie-container-emoji {
+  position: absolute;
+  scale: 0.5;
+  rotate: 0.05turn;
+  top: 25px;
+  right: 10px;
+  width: 300px;
+  height: 300px;
+  z-index: 10;
+}
+.lottie-container-cookie {
+  margin: auto;
+  margin-top: -200px;
+  width: 600px;
+  height: 600px;
+  z-index: -1; /* Make sure it's above other content */
+}
+
+.lottie-container-globe {
+  position: absolute;
+  top: 60%; /* Centered vertically; adjust as needed */
+  left: 0%; /* Centered horizontally; adjust as needed */
+  transform: translate(-50%, -50%) scale(3); /* Adjusts the positioning to center the div */
+  width: 200px;
+  height: 200px;
+  z-index: -1; /* Make sure it's above other content */
+}
+
+.lottie-container-detective {
+  position: absolute;
+  top: 60%; /* Centered vertically; adjust as needed */
+  left: 0%; /* Centered horizontally; adjust as needed */
+  transform: translate(70%, 70%) scale(3) rotateY(180deg); /* Adjusts the positioning to center the div and mirror the image */
+  width: 200px;
+  height: 200px;
+  z-index: -1; /* Make sure it's above other content */
+}
+
+.game-section {
+  flex-wrap: wrap;
+  max-width: 100%;
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Align content to the start of the section */
+  padding: 20px;
+  background: transparent;
+  gap: 20px; /* Adjust the gap between the image and text as needed */
+}
+
+.game-image-container {
+  height: fit-content;
+}
+
+.game-image {
+  width: 100%;
+  max-width: 850px;
+  height: 100%;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.game-image:hover {
+  border-color: var(--foreground-rgb);
+  transition: all;
+  transition-duration: 1000ms;
+  transition-timing-function: ease-in-out;
+}
+
+.game-section h2 {
+  color: #ffffff;
+  font-family: "LuckiestGuy";
+  font-size: 25pt;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.game-section p {
+  color: #ffffff;
+  font-family: "Manrope";
+  font-size: 14pt;
+  margin: 0;
+}
+
+.start-game-button {
+  width: fill;
+  font-family: "LuckiestGuy";
+  background-color: transparent;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  padding: 10px 20px;
+  padding-top: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.start-game-button:hover {
+  background-color: #e04a89;
+}
+
+/* The modal backdrop, covering the entire screen */
+.how-to-play-modal {
+  position: fixed; /* Fixed position to cover the entire view */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.how-to-play-content {
+  background: #e04a89; /* Pink background as in the screenshot */
+  color: #fff; /* White text for better contrast */
+  padding: 2em;
+  border-radius: 20px;
+  width: 100%; /* Adjusted for better responsiveness */
+  max-width: 800px; /* Maximum width to ensure it doesn't get too large on wider screens */
+  text-align: left; /* Align text to the left for better readability */
+  position: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow for a subtle depth */
+  margin: auto; /* Center the modal in the viewport */
+  font-family: "Manrope"; /* Maintain the playful font choice */
+  line-height: 1.6; /* Slightly more line-spacing for readability */
+  font-size: 1rem; /* Adjust font size for consistency */
+}
+
+/* Style the list items */
+.how-to-play-content ul {
+  font-size: 1.5rem;
+  padding-left: 1.2em; /* Add padding to the left of list for better structure */
+}
+
+/* Larger text for headings for emphasis */
+.how-to-play-content h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+}
+
+/* Reminder text styling for emphasis */
+.reminder-text {
+  font-weight: bold;
+  margin-top: 1em; /* Space before the reminder text */
+}
+.game-button {
+	width: fill;
+	font-family: 'LuckiestGuy';
+	background-color: #FF5BAA;
+	color: #FFFFFF;
+	border: 3px solid #ffffff;
+	border-radius: 20px;
+	padding: 10px 20px;
+	padding-top: 15px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.3s ease;
+    gap: 20px
+}
+  /* Close button styling */
+.close-button {
+  background-color: #fff; /* White background for the button to stand out */
+  color: #ff5baa; /* Pink text color to match the modal's theme */
+  border: 2px solid #ff5baa; /* Pink border to make it pop */
+  border-radius: 50%; /* Circular button for a friendly touch */
+  width: 40px; /* Fixed width */
+  height: 40px; /* Fixed height */
+  font-size: 1.5rem; /* Larger 'X' for clear visibility */
+  position: absolute; /* Position it absolutely relative to its parent */
+  top: 10px; /* Position from the top of the modal */
+  right: 10px; /* Position from the right of the modal */
+}
+
+.close-button:hover {
+  background-color: #e04a89; /* Darker pink on hover for interactive feedback */
+  border-color: #e04a89; /* Border color changes on hover as well */
+}
+
+/* Styles for the 'How to Play the Game' button */
+.how-to-play-button {
+  font-family: "LuckiestGuy"; /* font for the button text */
+  background-color: #ff5baa; /* Vibrant pink background color for the button */
+  color: #ffffff; /* White color for the button text to ensure it's readable */
+  border: none; /* No border for a modern, flat appearance */
+  border-radius: 20px; /* Rounded corners for a softer, more friendly look */
+  padding: 10px 20px; /* Padding inside the button for balanced spacing */
+  font-size: 1.5rem; /* Large font size for the button text to make it stand out */
+  cursor: pointer; /* Cursor changes to a pointer to indicate the button is clickable */
+  outline: none; /* Removes the default focus outline to maintain the style upon click */
+  margin-top: 20px; /* Adds space above the button to separate it from other content */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for a 3D effect and to help the button 'pop' */
+  display: block; /* The button is a block element to occupy its own space in the layout */
+}
+
+.how-to-play-button:hover {
+  background-color: #e04a89;
+}
+
+.game-card {
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black background */
+  border-radius: 20px; /* Rounded corners */
+  width: 100%;
+  max-width: 350px; /* Adjust the width as per your design */
+  margin: 10px; /* Space around the cards */
+  padding: 20px; /* Padding inside the card */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.game-card-content {
+  text-align: center; /* Centering the text inside the card */
+}
+
+.coming-soon-button {
+  font-family: "LuckiestGuy";
+  background-color: #c0c0c0;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  padding-top: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
+}
+
+.button-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 18, 18, 18;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 242, 242, 242;
+
+    --global-dark: 18, 18, 18;
+    --global-light: 242, 242, 242;
+  }
+
+  body {
+    background: linear-gradient(to bottom, #ff5baa, #ffe11e);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 242, 242, 242;
+    --background-start-rgb: 18, 18, 18;
+    --background-end-rgb: 18, 18, 18;
+
+    --global-dark: 18, 18, 18;
+    --global-light: 242, 242, 242;
+  }
+
+  body {
+    background: linear-gradient(to bottom, #000000, rgb(80, 0, 155));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+
+  p {
+    color: white;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--foreground-rgb), 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(var(--global-dark), 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(var(--foreground-rgb), 0.3);
+}
